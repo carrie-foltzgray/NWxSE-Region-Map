@@ -53,13 +53,7 @@
 
     // === VERY SIMPLE REGION POLYGONS (approximate coverage for quick visual) ===
     // You can replace these with precise state GeoJSON later. These are bounding boxes for clarity.
-    const nwPoly = L.polygon([
-      [49.5, -125.0], [49.5, -103.0], [31.5, -103.0], [31.5, -125.0]
-    ], { color: COLORS.regionStroke, weight: 1, fillColor: COLORS.regionFillNW, fillOpacity: 1 }).addTo(map);
-
-    const sePoly = L.polygon([
-      [39.5, -90.0], [39.5, -74.0], [24.0, -74.0], [24.0, -90.0]
-    ], { color: COLORS.regionStroke, weight: 1, fillColor: COLORS.regionFillSE, fillOpacity: 1 }).addTo(map);
+   
 
     // === OFFICE DATA ===
     // Minimal fields: name, company, region: 'NW' | 'SE', lat, lng, address, featured: true for ⭐
