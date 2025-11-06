@@ -119,8 +119,10 @@
       if (o.region === 'NW') clusterNW.addLayer(m); else clusterSE.addLayer(m);
     });
 
-    const groupNW = L.layerGroup([nwPoly, clusterNW]).addTo(map);
-    const groupSE = L.layerGroup([sePoly, clusterSE]).addTo(map);
+// NEW – just the marker clusters (state fills are drawn separately via GeoJSON)
+const groupNW = L.layerGroup([clusterNW]).addTo(map);
+const groupSE = L.layerGroup([clusterSE]).addTo(map);
+
 
     // Layers control
     L.control.layers(null, { 'Northwest': groupNW, 'Southeast': groupSE }, { collapsed: true, position: 'topright' }).addTo(map);
