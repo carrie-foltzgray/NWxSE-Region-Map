@@ -131,6 +131,45 @@ const groupSE = L.layerGroup([clusterSE]).addTo(map);
     // Fit to all markers
     const all = L.featureGroup([clusterNW, clusterSE]);
     map.fitBounds(all.getBounds().pad(0.2));
+// --- Regional Coloring Layer (accurate state borders via TopoJSON) ---
+// Create a pane so polygons sit under markers
+map.createPane('regions');
+map.getPane('regions').style.zIndex = 350;
+
+// Map full state names to your NW/SE regions
+const REGION_BY_STATE_NAME = {
+  // Northwest
+  "Washington":"NW","Oregon":"NW","Idaho":"NW","Montana":"NW","Wyoming":"NW","California":"NW",
+
+  // Southeast
+  "Florida":"SE","Georgia":"SE","Alabama":"SE","Mississippi":"SE","South Carolina":"SE","North Carolina":"SE",
+  "Tennessee":"SE","Kentucky":"SE","Virginia":"SE","Louisiana":"SE","Arkansas":"SE","Texas":"SE"
+};
+
+// Fetch official US states (us-atlas TopoJSON) and convert to GeoJSON
+fetch('https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json')
+  .then(r => r.json())
+  .then(us => {
+    const states = topojson.feature(us, us.objects.states); // -> GeoJSON FeatureCollection
+
+    L.geoJSON(states, {
+      pane: 'regions',
+      style: f => {
+        const name = f.properties && f.properties.name;
+        const region = REGION_BY_STATE_NAME[name];
+        let fill = null;
+        if (region === 'NW') fill = 'rgba(31,91,137,0.20)';  // NW color
+        if (region === 'SE') fill = 'rgba(122,91,166,0.20)'; // SE color
+        return {
+          color: fill ? 'rgba(0,0,0,0.3)' : 'transparent',
+          weight: fill ? 1 : 0,
+          fillColor: fill || 'transparent',
+          fillOpacity: fill ? 1 : 0,
+          interactive: false
+        };
+      }
+    }).addTo(map);
+  });
 
   </script>
 </body>
