@@ -1,0 +1,10 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    { "type": "Feature", "properties": { "postal": "WA" }, "geometry": { "type": "Polygon", "coordinates": [[[ -124.79, 48.38 ], [ -117.03, 49.0 ], [ -117.03, 45.55 ], [ -124.79, 46.0 ], [ -124.79, 48.38 ]]] }},
+    { "type": "Feature", "properties": { "postal": "OR" }, "geometry": { "type": "Polygon", "coordinates": [[[ -124.56, 46.25 ], [ -116.47, 46.25 ], [ -116.47, 42.0 ], [ -124.56, 42.0 ], [ -124.56, 46.25 ]]] }},
+    { "type": "Feature", "properties": { "postal": "CA" }, "geometry": { "type": "Polygon", "coordinates": [[[ -124.48, 42.0 ], [ -114.13, 42.0 ], [ -114.13, 32.53 ], [ -124.48, 32.53 ], [ -124.48, 42.0 ]]] }},
+    { "type": "Feature", "properties": { "postal": "FL" }, "geometry": { "type": "Polygon", "coordinates": [[[ -87.63, 31.0 ], [ -80.03, 31.0 ], [ -80.03, 24.55 ], [ -87.63, 24.55 ], [ -87.63, 31.0 ]]] }},
+    { "type": "Feature", "properties": { "postal": "GA" }, "geometry": { "type": "Polygon", "coordinates": [[[ -85.6, 35.0 ], [ -81.0, 35.0 ], [ -81.0, 30.3 ], [ -85.6, 30.3 ], [ -85.6, 35.0 ]]] }}
+  ]
+}
