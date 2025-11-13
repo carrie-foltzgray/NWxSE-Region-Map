@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<style>
+  :root {
+    --alera-blue: #00ADF0;   /* Wilson Blue */
+    --text: #FFFFFF;         /* White */
+  }
+  body {
+    margin: 0;
+    background: transparent;
+    font-family: "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
+    color: var(--text);
+  }
+  .wrap {
+    display: inline-block;
+    text-align: right;
+    padding: 8px 10px;
+    line-height: 1.1;
+  }
+  .label {
+    font-weight: 600;
+    font-size: 13px;
+    opacity: .95;
+  }
+  .time {
+    margin-top: 4px;
+    font-weight: 800;
+    font-size: 20px;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: .5px;
+  }
+  .chip {
+    display: inline-block;
+    padding: 2px 6px;
+    border-radius: 6px;
+    background: var(--alera-blue);
+  }
+  @media (max-width: 420px){
+    .label{font-size:12px}
+    .time{font-size:18px}
+  }
+</style>
+</head>
+<body>
+  <div class="wrap" aria-live="polite" aria-label="Countdown timer">
+    <div class="label">Countdown to 26Q2 Regional Forum</div>
+    <div class="time"><span class="chip" id="cd">--d --h --m</span></div>
+  </div>
+
+<script>
+// May 11, 2026 at 9:00 AM Eastern
+const EVENT_ISO = "2026-05-11T09:00:00-04:00";
+const target = new Date(EVENT_ISO).getTime();
+const el = document.getElementById("cd");
+
+const tick = () => {
+  const now = Date.now();
+  const diff = target - now;
+
+  if (diff <= 0) {
+    el.textContent = "Event is happening now!";
+    return clearInterval(timer);
+  }
+
+  const d = Math.floor(diff / 86400000);
+  const h = Math.floor((diff % 86400000) / 3600000);
+  const m = Math.floor((diff % 3600000) / 60000);
+
+  el.textContent = `${d}d ${h}h ${m}m`;
+};
+tick();
+const timer = setInterval(tick, 1000);
+</script>
+</body>
+</html>
