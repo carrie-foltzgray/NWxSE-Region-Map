@@ -138,12 +138,20 @@ map.getPane('regions').style.zIndex = 350;
 
 // Map full state names to your NW/SE regions
 const REGION_BY_STATE_NAME = {
-  // Northwest
-  "Washington":"NW","Oregon":"NW","Idaho":"NW","Montana":"NW","Wyoming":"NW","California":"NW",
+  // Northwest (blue)
+  "Washington": "NW",
+  "Oregon": "NW",
+  "Idaho": "NW",
+  "Montana": "NW",
+  "Wyoming": "NW",
+  "Alaska": "NW",
 
-  // Southeast
-  "Florida":"SE","Georgia":"SE","Alabama":"SE","Mississippi":"SE","South Carolina":"SE","North Carolina":"SE",
-  "Tennessee":"SE","Kentucky":"SE","Virginia":"SE","Louisiana":"SE","Arkansas":"SE","Texas":"SE"
+  // Southeast (purple)
+  "Tennessee": "SE",
+  "North Carolina": "SE",
+  "South Carolina": "SE",
+  "Georgia": "SE",
+  "Florida": "SE"
 };
 
 // Fetch official US states (us-atlas TopoJSON) and convert to GeoJSON
